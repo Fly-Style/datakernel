@@ -92,8 +92,16 @@ public final class Utils {
 
 	@SuppressWarnings("unchecked")
 	public static Trie<Scope, Map<Key<?>, Binding<?>>> resolve(Trie<Scope, Map<Key<?>, Set<Binding<?>>>> bindings, Multibinder<?> multibinder) {
-		return bindings.map(localBindings -> squash(localBindings, (k, v) -> ((Multibinder) multibinder).multibind(k, v)));
-		//                                                                          ^ java generics are just broken
+		return bindings.map(localBindings -> squash(localBindings, (k, v) -> {
+			switch (v.size()) {
+				case 0:
+					throw new DIException("Provided key " + k + " with no associated bindings");
+				case 1:
+					return v.iterator().next();
+				default:
+					return ((Multibinder) multibinder).multibind(k, v);
+			}
+		}));
 	}
 
 	public static void checkArgument(boolean condition) {
