@@ -1,0 +1,18 @@
+{% for section in site.data.nav_docs_cloud %}
+<h3>{{ section.title }}</h3>
+    <ul>
+        {% for item in section.items %}
+        {% if page.filename == item.filename %}
+        <li class="sidebar-item-selected-wrapper">
+            <div class="sidebar-item-selected">
+                <a href="/docs/cloud/{{ item.filename }}.html">{{ item.title }}</a>
+            </div>
+        </li>
+        {% else %}
+        <li>
+            <a href="/docs/cloud/{{ item.filename }}.html">{{ item.title }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+{% endfor %}

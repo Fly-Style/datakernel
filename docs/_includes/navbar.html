@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-dark p-0">
+    <div class="navbar-logo-wrap pr-2 pb-1">
+        <a href="/">
+            <img class="navbar-logo" src="/static/images/images-redesign/logo@2x.png" alt="logo">
+        </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+        <div class="container">
+            <ul class="navbar-nav mr-auto mt-1 mt-lg-0">
+                <li><a class="nav-link" href="/">Home</a></li>
+                <li class="dropdown">
+                    <a class="nav-link nav-expanded" href="/docs/core">Core</a>
+                    <ul class="dropdown-content">
+                        <div class="dropdown-wrapper">
+                        {% for section in site.data.nav_docs_core %}
+                            {% if section.title == 'Docs' %}
+                                {% for item in section.items %}
+                                <li>
+                                    <a href="/docs/core/{{ item.filename }}.html">{{ item.title }}</a>
+                                </li>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="nav-link nav-expanded" href="/docs/cloud">Cloud</a>
+                    <ul class="dropdown-content">
+                        <div class="dropdown-wrapper">
+                        {% for section in site.data.nav_docs_cloud %}
+                            {% if section.title == 'Docs' %}
+                                {% for item in section.items %}
+                                <li>
+                                    <a href="/docs/cloud/{{ item.filename }}.html">{{ item.title }}</a>
+                                </li>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="nav-link nav-expanded" href="/docs/global-cloud">Global Cloud</a>
+                    <ul class="dropdown-content">
+                        {% for section in site.data.nav_docs_global %}
+                            {% if section.title == 'Docs'%}
+                            <div class="dropdown-wrapper {% if section.items.size < 6 %} dropdown-wrapper-6 {% endif%}">
+                                {% for item in section.items %}
+                                    <li>
+                                        <a href="/docs/global-cloud/{{ item.filename }}.html">{{item.title}}</a>
+                                    </li>
+                                {% endfor %}
+                            </div>
+                             {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <span>
+      <ul class="navbar-nav mr-auto mt-1 mt-lg-0">
+        <li><a class="nav-link" href="http://uikernel.io">Uikernel</a></li>
+        <li><a class="nav-link" href="http://adkernel.com">Adkernel</a></li>
+        <li><a class="nav-link" href="{{site.github_url}}">Github</a></li>
+      </ul>
+    </span>
+    </div>
+</nav>

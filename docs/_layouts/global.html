@@ -1,0 +1,35 @@
+---
+layout: default
+nav-menu: global
+---
+
+    <div class="col-md-4 col-lg-3 px-0 mb-3 sidebar">
+        {% include nav_docs_global.html %}
+    </div>
+
+
+    <div class="col-md-8 col-lg-9 px-0 col-xl-7 markdown-content docs-content">
+        <div class="status-wrapper">
+            <h1>{{ page.title }} </h1>
+            {% if page.status == "WIP" %}
+            {% include stability-0.html %}
+            {% endif %}
+            <!-- <a class="edit-page-link" href="https://github.com/{{ page.path }}" target="_blank">Edit on GitHub</a> -->
+        </div>
+        <div class="subHeader">{{ page.description }}</div>
+
+        {{ content }}
+
+        <div class="row docs-prevnext">
+            {% if page.prev %}
+            <div class="col-sm-6">
+                <a  class="docs-prevnext-button pull-left" href="/docs/{{ page.prev }}">Prev</a>
+            </div>
+            {% endif %}
+            {% if page.next %}
+            <div class="col-sm-6">
+                <a class="docs-prevnext-button pull-right" href="/docs/{{ page.next }}">Next</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>

@@ -1,0 +1,24 @@
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+datakernel_version: 3.0.0-SNAPSHOT
+github_url: http://github.com/softindex/datakernel
+twitter_url: https://twitter.com/datakernel_io
+encoding: utf-8
+exclude:
+  - Gemfile
+  - params.json
+  - gulpfile.js
+  - npm-*
+  - package.json
+  - guide/**/src
+defaults:
+  - scope:
+      path: docs
+      type: pages
+    values:
+      layout: docs
+plugins:
+  - jekyll-sitemap
+  - jekyll_github_sample
