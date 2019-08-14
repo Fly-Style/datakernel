@@ -1,4 +1,8 @@
-<img src="http://datakernel.io/static/images/logo-icon.png">
+<p align="center">
+  <a href="https://datakernel.io" target="_blank">
+    <img alt="Parcel" src="http://datakernel.io/static/images/logo-icon.png" width="749">
+  </a>
+</p>
 
 ## Introduction
 
